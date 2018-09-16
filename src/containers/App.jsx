@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getContributors, getRepos } from "../actions/actions";
+import CustomNavbar from "../components/navbar";
 import InputTypehead from "../components/input";
 import RepoListing from "../containers/repo_listing";
 
@@ -63,17 +64,23 @@ class App extends Component {
     const { error, showRepoListing } = this.state;
     let msg, repos;
     if (error.length > 0) {
-      msg = <div>{this.state.error}</div>;
+      msg = (
+        <div className="app-main__error--msg col-lg-6 col-md-6 col-sm-12">
+          {this.state.error}
+        </div>
+      );
     }
     if (showRepoListing) {
       repos = <RepoListing />;
     }
     return (
       <div>
-        <h1>Git Hub Users</h1>
-        {this.showDetails()}
-        {msg}
-        {repos}
+        <CustomNavbar />
+        <div className="container">
+          <section className="app-main">{this.showDetails()}</section>
+          <section className="app-main__error">{msg}</section>
+          {repos}
+        </div>
       </div>
     );
   }

@@ -1,0 +1,45 @@
+.container {
+}
+
+.app-main {
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 0rem 0rem 0rem;
+  &__error {
+    margin: 0;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__error--msg {
+    display: block;
+    background-color: #d35454;
+    border-radius: 1rem;
+    color: $color-white;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 400;
+    box-shadow: 2px 2px 7px -1px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.repo-list {
+  display: block;
+  margin-top: 3rem;
+  width: 100%;
+  &__section {
+  }
+  &__item {
+    display: inline-block;
+    height: 5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: $color-white;
+    border-radius: 0.4rem;
+    box-shadow: 2px 2px 7px -1px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    padding-top: 1rem;
+  }
+}

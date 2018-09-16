@@ -11,6 +11,8 @@
 @import "layout/grid";
 @import "layout/navigation";
 
-@import "components/buttons";
+@import "components/button.scss";
+@import "components/input.scss";
+@import "components/chart.scss";
 
 @import "pages/home";

@@ -52,21 +52,12 @@ class InputTypehead extends Component {
     this.setState({ listShow: !this.state.listShow });
   };
 
-  /*Rendering a dynamic toggle button with show and hide terms, button is kept outside in a function for preventing undesired effects in react*/
-  toggleButton = () => {
-    if (this.state.listShow === true) {
-      return <button onClick={this.toggleList}>hide</button>;
-    } else {
-      return <button onClick={this.toggleList}>show</button>;
-    }
-  };
-
   /*Handling submit locally for clearing input fields and passing form data to parent*/
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleSubmit(this.state.searchTerm);
-    this.setState({ searchTerm: "" });
+    this.setState({ searchTerm: "", listShow: false });
   };
 
   /*Render method holds HTML/JSX,JS*/
@@ -74,26 +65,41 @@ class InputTypehead extends Component {
     /*Rendering the drop down list */
     let displayList = this.state.filteredData.map(option => {
       return (
-        <li key={option.id} onClick={() => this.handleSelect(option)}>
+        <li
+          key={option.id}
+          className="search-bar__list-item"
+          onClick={() => this.handleSelect(option)}
+        >
           {option.data}
         </li>
       );
     });
     return (
       <Fragment>
-        <section className="search-input">
-          <form onSubmit={this.handleSubmit}>
+        <section className="search-bar col-lg-4 col-md-6 col-sm-12">
+          <form>
             <label>{this.props.label}</label>
-            <input
-              type="text"
-              placeholder="Search..."
-              onChange={this.handleChange}
-              value={this.state.searchTerm}
-              onClick={this.toggleList}
-            />
-            {this.toggleButton()}
-            <button type="submit">Submit</button>
-            <ul>{this.state.listShow && displayList}</ul>
+            <fieldset className="col-lg-12 col-sm-12">
+              <div className="search-bar__input--wrapper">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={this.handleChange}
+                  value={this.state.searchTerm}
+                  onClick={this.toggleList}
+                />
+                <i
+                  class="search-bar__drop-down--icon"
+                  onClick={this.toggleList}
+                />
+                <ul className={"search-bar__list--" + this.state.listShow}>
+                  {this.state.listShow && displayList}
+                </ul>
+              </div>
+            </fieldset>
+            <button type="submit" name="submit" onClick={this.handleSubmit}>
+              Submit
+            </button>
           </form>
         </section>
       </Fragment>

@@ -1,0 +1,14 @@
+.navbar-main {
+  background-color: $color-primary-dark;
+  color: $color-white;
+  justify-content: flex-start;
+  height: 6rem;
+  display: flex;
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+  }
+  &__text {
+    margin-left: 1rem;
+  }
+}

@@ -49,16 +49,33 @@ class RepoListing extends Component {
     if (this.props.repos.length === 0) {
       return <div>Loading App...</div>;
     } else {
+      let content;
+      if (this.props.repoDetail.length > 0) {
+        content = <SimpleLineChart data={this.state.repoDetail} />;
+      } else if (this.state.submit) {
+        content = <div>"Repo doesn't exist"</div>;
+      }
       return (
         <div>
-          <InputTypehead
-            users={this.state.repos}
-            handleSubmit={this.handleRepoSubmit}
-          />
-          <h2>Repo list</h2>
-          <ul>
+          <section className="repo-list__section">
+            <InputTypehead
+              users={this.state.repos}
+              label="Git-hub Repos"
+              handleSubmit={this.handleRepoSubmit}
+            />
+            {content}
+          </section>
+          <h2>Repo-List</h2>
+          <ul className="repo-list">
             {this.state.repos.map(repo => {
-              return <li key={repo.id}>{repo.data}</li>;
+              return (
+                <li
+                  className="repo-list__item col-lg-3 col-md-4 col-sm-12"
+                  key={repo.id}
+                >
+                  {repo.data}
+                </li>
+              );
             })}
           </ul>
         </div>
@@ -67,20 +84,14 @@ class RepoListing extends Component {
   };
 
   render() {
-    let content;
-    if (this.props.repoDetail.length > 0) {
-      content = <SimpleLineChart data={this.state.repoDetail} />;
-    } else if (this.state.submit) {
-      content = <div>"Repo doesn't exist"</div>;
-    }
     return (
       <div>
-        <h1>
-          Repo listing--
+        <h2>
+          Repo listing:
           {this.state.user}
-        </h1>
+        </h2>
+
         {this.showDetails()}
-        {content}
       </div>
     );
   }
