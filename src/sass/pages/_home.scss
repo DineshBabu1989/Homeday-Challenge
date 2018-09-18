@@ -2,7 +2,6 @@
 }
 
 .app-main {
-  display: flex;
   justify-content: space-around;
   padding: 5rem 0rem 0rem 0rem;
   &__error {
@@ -42,4 +41,10 @@
     text-align: center;
     padding-top: 1rem;
   }
+}
+
+.app-main__input-box {
+  height: 30rem;
+  background-color: #212121;
+  margin: 10px;
 }

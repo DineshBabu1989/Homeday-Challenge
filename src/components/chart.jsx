@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   LineChart,
   ResponsiveContainer,
@@ -12,7 +12,11 @@ import {
 
 const SimpleLineChart = props => {
   return (
-    <div>
+    <Fragment>
+      <div class="app-titles__sub col-lg-12">
+        Chart List:
+        {props.repoName}
+      </div>
       <div className="repo--list__detail--chart  col-lg-12 col-md-6 col-sm-12">
         <ResponsiveContainer width="100%" height={250}>
           <LineChart
@@ -34,7 +38,7 @@ const SimpleLineChart = props => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

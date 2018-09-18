@@ -76,7 +76,7 @@ class InputTypehead extends Component {
     });
     return (
       <Fragment>
-        <section className="search-bar col-lg-4 col-md-6 col-sm-12">
+        <div className="search-bar">
           <form>
             <label>{this.props.label}</label>
             <fieldset className="col-lg-12 col-sm-12">
@@ -89,7 +89,7 @@ class InputTypehead extends Component {
                   onClick={this.toggleList}
                 />
                 <i
-                  class="search-bar__drop-down--icon"
+                  className="search-bar__drop-down--icon"
                   onClick={this.toggleList}
                 />
                 <ul className={"search-bar__list--" + this.state.listShow}>
@@ -101,7 +101,7 @@ class InputTypehead extends Component {
               Submit
             </button>
           </form>
-        </section>
+        </div>
       </Fragment>
     );
   }
