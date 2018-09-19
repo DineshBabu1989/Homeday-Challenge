@@ -44,6 +44,13 @@ On terminal instance -2
 npm run watch-css
 ```
 
+## Architecture of the application
+
+-React on the front end to render UI and respond to front-end events
+-Redux store to manage data from RESTful APIs
+-Actions contain API calls to predefined API end points
+-Reducers contain data from API calls in the form of objects
+
 ## Prerequisities
 
 -You need to have node.js installed in your system.
@@ -51,7 +58,7 @@ npm run watch-css
 
 ## Built With
 
-- React, Redux, Bootstrap-4 - Front-end
+- React, Redux, Bootstrap-4, SASS, autoprefixer - Front-end
 - node.js - The server side framework
 - VsCode - Text Editor with prettier setup
 
@@ -62,7 +69,3 @@ npm run watch-css
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-```
-
-```
