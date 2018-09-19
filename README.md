@@ -11,42 +11,45 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 ```
 git clone https://github.com/DineshBabu1989/homeday_challenge.git
-On terminal instance -1
 ```
 
+On terminal instance -1
+
+```
 npm install
 npm start
-
 ```
+
 On terminal instance -2
-```
 
+```
 npm run watch-css
-
 ```
+
 **if you are not familar with git:**
 Click here then download the .zip file. Extract the contents of the zip file, then open your terminal,
 change to the project directory, and:
 
 On terminal instance -1
-```
 
+```
 npm install
 npm start
-
 ```
+
 On terminal instance -2
-```
 
+```
 npm run watch-css
-
 ```
+
 ## Prerequisities
 
 -You need to have node.js installed in your system.
 --URL: https://nodejs.org/en/
 
 ## Built With
+
 - React, Redux, Bootstrap-4 - Front-end
 - node.js - The server side framework
 - VsCode - Text Editor with prettier setup
@@ -58,4 +61,7 @@ npm run watch-css
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+```
+
 ```
