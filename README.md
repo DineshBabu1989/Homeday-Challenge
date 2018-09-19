@@ -46,10 +46,10 @@ npm run watch-css
 
 ## Architecture of the application
 
--React on the front end to render UI and respond to front-end events
--Redux store to manage data from RESTful APIs
--Actions contain API calls to predefined API end points
--Reducers contain data from API calls in the form of objects
+- React on the front end to render UI and respond to front-end events
+- Redux store to manage data from RESTful APIs
+- Actions contain API calls to predefined API end points
+- Reducers contain data from API calls in the form of objects
 
 ## Prerequisities
 
