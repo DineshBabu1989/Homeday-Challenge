@@ -6,6 +6,7 @@
 
 .app-list {
   list-style: none;
+  margin-bottom: 6rem;
   &__item {
     white-space: nowrap;
     width: 100%;
@@ -14,7 +15,7 @@
     text-overflow: ellipsis;
     background-color: $color-white;
     border-radius: 0.4rem;
-    box-shadow: 2px 2px 7px -1px rgba(0, 0, 0, 0.75);
+    @include vp-box-shadow(2px 2px 7px -1px rgba(0, 0, 0, 0.75));
     border-top: 2px solid $color-primary-light;
     padding: 1rem;
     margin-top: 1rem;

@@ -3,19 +3,18 @@ import { connect } from "react-redux";
 import { getContributors, getRepos, getRepoDetails } from "../actions/actions";
 import CustomNavbar from "../components/navbar";
 import InputTypehead from "../components/input";
-import RepoList from "../components/repo_list";
+import RepoList from "../components/list";
 import SimpleLineChart from "../components/chart";
-import CustomFooter from "../components/footer";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
-      error: "",
       repos: [],
       repoDetail: [],
       user: "",
+      error: "",
       showChart: false,
       selectedRepo: ""
     };
@@ -26,12 +25,15 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    /*Get users from redux store and update local users state*/
     let users = nextProps.users.map(user => {
       return {
         data: user.login,
         id: user.id
       };
     });
+
+    /*Get repos list from redux store and update local users state*/
     let reposNew = nextProps.repos.map(repo => {
       return {
         owner: repo.owner.login,
@@ -39,6 +41,8 @@ class App extends Component {
         id: repo.id
       };
     });
+
+    /*Get repo detail from redux store and update local repoDetail state*/
     let repoDetail = nextProps.repoDetail.map(repo => {
       return {
         name: repo.login,
@@ -53,8 +57,7 @@ class App extends Component {
     });
   }
 
-  /*Handling user submit and updating the redux state with repos*/
-
+  /*Handling user submit and updating the redux store with repos*/
   handleUserSubmit = user => {
     let userExist = this.state.users.find(userItem => {
       if (userItem.data === user) {
@@ -72,8 +75,7 @@ class App extends Component {
     }
   };
 
-  /*Handling repo submit and updating the redux state with repodetails*/
-
+  /*Handling repo submit and updating the redux store with repodetails*/
   handleRepoSubmit = repo => {
     let repoExist = this.state.repos.find(repoItem => {
       if (repoItem.data === repo) {
@@ -97,6 +99,7 @@ class App extends Component {
     }
   };
 
+  /*Show user list data, repo list data when its is available in redux store*/
   showUsers = () => {
     if (this.props.users.length === 0) {
       return <div>Loading App...</div>;
@@ -122,11 +125,12 @@ class App extends Component {
     }
   };
 
+  /*Render chart with chart data from local state*/
   showChart = () => {
     if (this.state.repoDetail.length < 1 && !this.state.showChart) {
       return <div />;
     } else if (this.state.repoDetail.length < 1 && this.state.showChart) {
-      return <div>Loading chart</div>;
+      return <div>Loading chart...</div>;
     } else if (this.state.repoDetail.length > 0 && this.state.showChart) {
       return (
         <SimpleLineChart
@@ -138,8 +142,9 @@ class App extends Component {
   };
 
   render() {
+    /*Error message*/
     const { error } = this.state;
-    let msg, repos;
+    let msg;
     if (error.length > 0) {
       msg = (
         <div className="app-main__error--msg col-lg-6 col-md-6 col-sm-12">
@@ -150,7 +155,9 @@ class App extends Component {
 
     return (
       <Fragment>
+        {/*Navbar*/}
         <CustomNavbar />
+
         <section className="container">
           {/*App input container*/}
 
@@ -165,10 +172,13 @@ class App extends Component {
 
           {/*Repo list*/}
           <section>
-            <RepoList repos={this.state.repos} user={this.state.user} />
+            <RepoList
+              repos={this.state.repos}
+              user={this.state.user}
+              handleSubmit={this.handleRepoSubmit}
+            />
           </section>
         </section>
-        <CustomFooter />
       </Fragment>
     );
   }

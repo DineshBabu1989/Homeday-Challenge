@@ -13,11 +13,12 @@ import {
 const SimpleLineChart = props => {
   return (
     <Fragment>
-      <div class="app-titles__sub col-lg-12">
+      <div className="app-titles__sub col-lg-12">
         Chart List:
         {props.repoName}
       </div>
-      <div className="repo--list__detail--chart  col-lg-12 col-md-6 col-sm-12">
+      {/*Responsive chart*/}
+      <div className="repo--list__detail--chart  col-lg-12 col-md-12 col-sm-12">
         <ResponsiveContainer width="100%" height={250}>
           <LineChart
             data={props.data}

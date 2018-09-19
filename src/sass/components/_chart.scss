@@ -1,3 +1,4 @@
+/***************************************Chart styling*************************/
 .repo--list__detail--chart {
   display: flex;
   align-content: center;
@@ -7,6 +8,5 @@
   height: 300px;
   background-color: $color-white;
   border-radius: 1rem;
-  border: 1px solid #eee;
-  box-shadow: 2px 2px 7px -1px rgba(0, 0, 0, 0.75);
+  @include vp-box-shadow(2px 2px 7px -1px rgba(0, 0, 0, 0.75));
 }

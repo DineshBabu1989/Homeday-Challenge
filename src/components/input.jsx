@@ -13,13 +13,11 @@ class InputTypehead extends Component {
   }
 
   /*Receive new list of data for the drop down list*/
-
   componentWillReceiveProps(nextProps) {
     this.setState({ data: nextProps.users });
   }
 
   /*Update the current search term and suggestions drop down*/
-
   handleChange = e => {
     let data = this.state.data;
     let newData = data.filter(item => {
@@ -35,13 +33,11 @@ class InputTypehead extends Component {
   };
 
   /* When a single item is selected from the drop down, Store the item in selected state locally and pass it back to the parent*/
-
   handleSelect = item => {
     this.setState({ searchTerm: item.data, selected: item, listShow: false });
   };
 
   /*Toggle list between show and hide states*/
-
   toggleList = () => {
     if (this.state.searchTerm.length === 0) {
       this.setState({
@@ -53,14 +49,12 @@ class InputTypehead extends Component {
   };
 
   /*Handling submit locally for clearing input fields and passing form data to parent*/
-
   handleSubmit = e => {
     e.preventDefault();
     this.props.handleSubmit(this.state.searchTerm);
     this.setState({ searchTerm: "", listShow: false });
   };
 
-  /*Render method holds HTML/JSX,JS*/
   render() {
     /*Rendering the drop down list */
     let displayList = this.state.filteredData.map(option => {
