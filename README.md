@@ -27,6 +27,7 @@ npm run watch-css
 ```
 
 **if you are not familar with git:**
+
 Click here then download the .zip file. Extract the contents of the zip file, then open your terminal,
 change to the project directory, and:
 
