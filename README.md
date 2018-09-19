@@ -62,6 +62,11 @@ npm run watch-css
 - node.js - The server side framework
 - VsCode - Text Editor with prettier setup
 
+## App demo
+
+The app demo is deployed on heroku with out redux devtools extension
+https://gittrackerdinesh.herokuapp.com/
+
 ## Authors
 
 - DINESH.B - FULL STACK DEVELOPER
