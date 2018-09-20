@@ -9,10 +9,12 @@ import {
   Tooltip,
   Legend
 } from "recharts";
+
 const ChartParams = {
   type: "monotone",
   stroke: "#0366d6"
 };
+
 const SimpleLineChart = props => {
   return (
     <Fragment>
@@ -20,6 +22,7 @@ const SimpleLineChart = props => {
         Chart List:
         {props.repoName}
       </div>
+
       {/*Responsive chart*/}
       <div className="repo--list__detail--chart  col-lg-12 col-md-12 col-sm-12">
         <ResponsiveContainer width="100%" height={250}>
@@ -38,7 +41,11 @@ const SimpleLineChart = props => {
               stroke={ChartParams.stroke}
               activeDot={{ r: 30 }}
             />
-            <Line type="monotone" dataKey="contribution" stroke="#0366d6" />
+            <Line
+              type={ChartParams.type}
+              dataKey="contribution"
+              stroke={ChartParams.stroke}
+            />
           </LineChart>
         </ResponsiveContainer>
       </div>
