@@ -14,6 +14,7 @@ export const getContributors = () => dispatch => {
   axios
     .get("https://api.github.com/repos/angular/angular/contributors")
     .then(res => {
+      //prepare data
       const users = res.data.map(user => {
         return {
           data: user.login,
@@ -39,6 +40,7 @@ export const getRepos = user => dispatch => {
   axios
     .get(reqUrl)
     .then(res => {
+      //prepare data
       const repos = res.data.map(repo => {
         return {
           owner: repo.owner.login,
@@ -68,6 +70,7 @@ export const getRepoDetails = repoDetails => dispatch => {
   axios
     .get(reqUrl)
     .then(res => {
+      //prepare data
       const repoDetail = res.data.map(repo => {
         return {
           name: repo.login,
