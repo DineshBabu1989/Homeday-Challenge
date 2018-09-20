@@ -5,6 +5,7 @@ import App from "./containers/App";
 import rootReducer from "./reducers";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 import registerServiceWorker from "./registerServiceWorker";
 import "./css/main.css";
 
@@ -13,7 +14,7 @@ const middleware = [thunk];
 const store = createStore(
   rootReducer,
   initialstate,
-  applyMiddleware(...middleware)
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 render(
   <Provider store={store}>

@@ -14,9 +14,15 @@ export const getContributors = () => dispatch => {
   axios
     .get("https://api.github.com/repos/angular/angular/contributors")
     .then(res => {
+      const users = res.data.map(user => {
+        return {
+          data: user.login,
+          id: user.id
+        };
+      });
       dispatch({
         type: GET_CONTRIBUTORS,
-        payload: res.data
+        payload: users
       });
     })
     .catch(err => {
@@ -33,9 +39,17 @@ export const getRepos = user => dispatch => {
   axios
     .get(reqUrl)
     .then(res => {
+      const repos = res.data.map(repo => {
+        return {
+          owner: repo.owner.login,
+          data: repo.name,
+          id: repo.id
+        };
+      });
+
       dispatch({
         type: GET_REPOS,
-        payload: res.data
+        payload: repos
       });
     })
     .catch(err => {
@@ -54,9 +68,15 @@ export const getRepoDetails = repoDetails => dispatch => {
   axios
     .get(reqUrl)
     .then(res => {
+      const repoDetail = res.data.map(repo => {
+        return {
+          name: repo.login,
+          contribution: repo.contributions
+        };
+      });
       dispatch({
         type: GET_REPO_DETAIL,
-        payload: res.data
+        payload: repoDetail
       });
     })
     .catch(err => {

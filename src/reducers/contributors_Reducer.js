@@ -3,13 +3,7 @@ import { GET_CONTRIBUTORS } from "../actions/actions";
 const contributors = (state = [], action) => {
   switch (action.type) {
     case GET_CONTRIBUTORS: {
-      const users = action.payload.map(user => {
-        return {
-          data: user.login,
-          id: user.id
-        };
-      });
-      return users;
+      return action.payload;
     }
 
     default:

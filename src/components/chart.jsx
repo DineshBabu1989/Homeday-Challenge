@@ -9,7 +9,10 @@ import {
   Tooltip,
   Legend
 } from "recharts";
-
+const ChartParams = {
+  type: "monotone",
+  stroke: "#0366d6"
+};
 const SimpleLineChart = props => {
   return (
     <Fragment>
@@ -30,9 +33,9 @@ const SimpleLineChart = props => {
             <Tooltip />
             <Legend />
             <Line
-              type="monotone"
+              type={ChartParams.type}
               dataKey="name"
-              stroke="#0366d6"
+              stroke={ChartParams.stroke}
               activeDot={{ r: 30 }}
             />
             <Line type="monotone" dataKey="contribution" stroke="#0366d6" />

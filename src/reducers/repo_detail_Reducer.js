@@ -3,13 +3,7 @@ import { GET_REPO_DETAIL } from "../actions/actions";
 const repoDetail = (state = [], action) => {
   switch (action.type) {
     case GET_REPO_DETAIL: {
-      const repoDetail = action.payload.map(repo => {
-        return {
-          name: repo.login,
-          contribution: repo.contributions
-        };
-      });
-      return repoDetail;
+      return action.payload;
     }
 
     default:
