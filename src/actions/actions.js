@@ -2,6 +2,9 @@ import axios from "axios";
 export const GET_CONTRIBUTORS = "GET_CONTRIBUTORS";
 export const GET_REPOS = "GET_REPOS";
 export const GET_REPO_DETAIL = "GET_REPO_DETAIL";
+export const SELECT_REPO = "SELECT_REPO";
+export const USER_ERROR = "USER_ERROR";
+export const REPO_ERROR = "REPO_ERROR";
 
 /*Getting intial contributors list on app load
 METHOD:GET,
@@ -59,4 +62,28 @@ export const getRepoDetails = repoDetails => dispatch => {
     .catch(err => {
       console.log(err);
     });
+};
+
+/*Select repo*/
+export const selectedRepo = repoName => dispatch => {
+  dispatch({
+    type: SELECT_REPO,
+    payload: repoName
+  });
+};
+
+/*User name error*/
+export const userError = error => dispatch => {
+  dispatch({
+    type: USER_ERROR,
+    payload: error
+  });
+};
+
+/*Repo name error*/
+export const repoError = error => dispatch => {
+  dispatch({
+    type: REPO_ERROR,
+    payload: error
+  });
 };
