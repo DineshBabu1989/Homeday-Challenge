@@ -5,6 +5,7 @@
 .app-main {
   justify-content: space-around;
   padding: 5rem 0rem 0rem 0rem;
+
   &__error {
     margin: 0;
     width: 50%;
@@ -13,6 +14,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   &__error--msg {
     display: block;
     background-color: $color-warning;

@@ -51,6 +51,17 @@ npm run watch-css
 - Actions contain API calls to predefined API end points
 - Reducers contain data from API calls in the form of objects
 
+## Notable points about the project
+
+- The tech stack used is Semantic HTML, React, Redux for state management, Bootstrap-4, SASS, Autoprefixer.
+- The concept of a single store and unidirectional data flow based redux architecture is followed.
+- The project uses Semantic HTML in React using Fragment tags and BEM for naming CSS architectural naming conventions.
+- The project has SASS set up with 7/1 folder structure for easing modularisation and maintainability of CSS.
+- The app is fully responsive on all browsers and devices.
+- The app is structured into components both functional and class-based.
+- The container components bind UI events to action creators which are responsible for updating the app state by updating the corresponding reducer.
+- The application state is passed as props to child components effectively rendering changes on the UI.
+
 ## Prerequisities
 
 -You need to have node.js installed in your system.
